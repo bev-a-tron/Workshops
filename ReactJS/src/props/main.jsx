@@ -9,8 +9,9 @@ let JSProps = {
 
 // You can change them!
 JSProps.aProp = 'A changed value!';
-
-
+JSProps['aProp'] = 'same thing';
+let propName = 'aProp';
+JSProps[propName] = 'stuff';  // bracket notation mandatory for variables
 
 // // HTML props aka attributes
 // let HTMLProps = (
@@ -32,9 +33,10 @@ JSProps.aProp = 'A changed value!';
 // http://facebook.github.io/react/docs/tags-and-attributes.html
 
 const PropExample = React.createClass({
+  // must have a render
   render() {
     // You can set the prop here, or directly on the tag (like className).
-    const typeProp = 'text';
+    const typeProp = 'color';
 
     return (
       <div>

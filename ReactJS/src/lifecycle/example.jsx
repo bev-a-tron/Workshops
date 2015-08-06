@@ -7,13 +7,16 @@ const LifecycleExample = React.createClass({
       <div id="example" className={this.props.backgroundStyle}>
         <h1>Lifecycle Example</h1>
         <p>All the action is on the console</p>
+        <h3>{this.state.message}</h3>
       </div>
     );
   }
 
   , getInitialState() {
     console.log('getInitialState');
-    return {};
+    return {
+      message: 'Init!'
+    };
   }
 
   , getDefaultProps() {
@@ -33,9 +36,19 @@ const LifecycleExample = React.createClass({
 
   , componentWillReceiveProps(nextProps) {
     console.log('componentWillReceiveProps', nextProps);
+    if (nextProps.backgroundStyle !== 'bg-primary') {
+      this.setState({
+        message: 'Primary!'
+      });
+    } else {
+      this.setState({
+        message: 'Whatever!'
+      });
+    }
+
   }
 
-  , shouldComponentUpdate(nextProps, nextState) {
+, shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate', nextProps, nextState);
     return true;
   }

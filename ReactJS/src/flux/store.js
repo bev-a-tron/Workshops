@@ -22,7 +22,7 @@ Store.prototype = {
    * Adds func as a listener for change events.
    * @param {Function} func - The function to add.
    */
-  onChange(func) {
+  onChange(func) {  // add listener
     this.eventEmitter.on(CHANGE_EVENT, func);
   }
 
@@ -30,7 +30,7 @@ Store.prototype = {
    * Removes func as a listener for change events.
    * @param {Function} func - The function to remove.
    */
-  , offChange(func) {
+  , offChange(func) {  // remove listener
     this.eventEmitter.off(CHANGE_EVENT, func);
   }
 

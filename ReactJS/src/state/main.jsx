@@ -5,6 +5,7 @@ const StateExample = React.createClass({
   render() {
     // Use state to get the value
     const typeProp = this.state.typeProp;
+    const fruit = this.state.fruit;
 
     return (
       <div>
@@ -16,6 +17,8 @@ const StateExample = React.createClass({
               id="react-input"
               type={typeProp}
             />
+            <p>I'm a {fruit}!
+            </p>
 
           </div>
           <div className="col-md-6">
@@ -27,7 +30,7 @@ const StateExample = React.createClass({
                 <li>
                   <button
                     className="btn btn-default"
-                    onClick={this.handleClick('radio')}
+                    onClick={this.handleClick('radio', 'peach')}
                   >
                     <code>type="radio"</code>
                   </button>
@@ -35,7 +38,7 @@ const StateExample = React.createClass({
                 <li>
                   <button
                     className="btn btn-primary"
-                    onClick={this.handleClick('button')}
+                    onClick={this.handleClick('button', 'lemon')}
                   >
                     <code>type="button"</code>
                   </button>
@@ -43,7 +46,7 @@ const StateExample = React.createClass({
                 <li>
                   <button
                     className="btn btn-success"
-                    onClick={this.handleClick('date')}
+                    onClick={this.handleClick('date', 'mango')}
                   >
                     <code>type="date"</code>
                   </button>
@@ -51,7 +54,7 @@ const StateExample = React.createClass({
                 <li>
                   <button
                     className="btn btn-warning"
-                    onClick={this.handleClick('color')}
+                    onClick={this.handleClick('color', 'pineapple')}
                   >
                     <code>type="color"</code>
                   </button>
@@ -59,32 +62,35 @@ const StateExample = React.createClass({
                 <li>
                   <button
                     className="btn btn-danger"
-                    onClick={this.handleClick('file')}
+                    onClick={this.handleClick('file', 'banana')}
                   >
                     <code>type="file"</code>
                   </button>
                 </li>
               </ul>
             </p>
+
           </div>
         </div>
       </div>
     );
   }
 
-  , handleClick(type) {
+  , handleClick(type, fruit) {
     // instead of making a function for each button, I'm using a closure.
     return (evt) => {
       // Update the state!
       this.setState({
-        typeProp: type
+        typeProp: type,
+        fruit: fruit
       });
     };
   }
 
   , getInitialState() {
     return {
-      typeProp: 'text'
+      typeProp: 'text',
+      fruit: 'raspberry'
     };
   }
 });
